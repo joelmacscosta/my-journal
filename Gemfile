@@ -22,3 +22,5 @@ group :test do
   gem 'faker'
   gem 'rspec'
 end
+gem 'faker'
+gem 'bcrypt', '~> 3.1.7'
