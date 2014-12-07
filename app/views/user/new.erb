@@ -1,4 +1,11 @@
 <form action="/user/new" method="POST">
+
+  <% if flash[:error] %>
+   <% flash[:error].each do |e| %>
+     <p class="error message"><%= e + "." %></p>
+    <% end %>
+  <% end %>
+
   <div class="name">
     <label>User name:</label>
     <input name="user_name">
