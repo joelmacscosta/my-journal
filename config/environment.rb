@@ -34,3 +34,4 @@ require APP_ROOT.join('config', 'database')
 
 
 I18n.enforce_available_locales = false
+require 'sinatra/flash'
