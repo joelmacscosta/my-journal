@@ -11,7 +11,8 @@ end
 post '/user/new' do
   @user = User.new(name: params[:user_name], 
   				     email: params[:user_email],
-  				     password: params[:user_password] )
+  				     password: params[:user_password],  
+               password_confirmation: params[:user_password_confirmation] )
   if @user.valid?
   	@user.save
     flash[:notice] = "Successfully created user."
