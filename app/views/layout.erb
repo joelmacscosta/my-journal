@@ -17,7 +17,12 @@
 
   <title>My Journal</title>
     <a href="/articles">Home</a>
-    <a href="/user/new">Sign Up</a>
+    <% if session[:user] %>
+      <a href="/logout">Logout</a>
+    <% else %>
+      <a href="/login">Login</a>
+      <a href="/user/new">Sign Up</a>
+    <% end %>
 </head>
 <body>
   <%= yield %>
