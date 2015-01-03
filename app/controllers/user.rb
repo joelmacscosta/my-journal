@@ -16,9 +16,12 @@ post '/user/new' do
   if @user.valid?
   	@user.save
     flash[:notice] = "Successfully created user."
+    session[:user] = @user.id
   	redirect :"users"
   else
     flash[:error] = @user.errors.full_messages 
   	redirect :"user/new"
   end
 end
+
+
