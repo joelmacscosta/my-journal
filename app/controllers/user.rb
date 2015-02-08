@@ -3,12 +3,12 @@ get '/users' do
 	erb :"user/show_all"
 end
 
-get '/user/new' do
+get '/signup' do
   @user = User.new
 	erb :"user/new"
 end
 
-post '/user/new' do
+post '/signup' do
   @user = User.new(name: params[:user_name], 
   				     email: params[:user_email],
   				     password: params[:user_password],  
