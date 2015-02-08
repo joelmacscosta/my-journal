@@ -1,0 +1,15 @@
+<form action="/login" method="POST">
+
+  <p class="error message"><%= flash[:error] %></p>
+
+  <div class="email">
+    <label>Email:</label>
+    <input name="user_email">
+  </div>
+  <div class="password">
+  	<label>Password:</label>
+  	<input name="user_password">  	
+  </div>
+
+  <input id = "create_btn" type="submit" value="Login">
+</form>
