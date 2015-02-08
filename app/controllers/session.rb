@@ -20,12 +20,27 @@ post '/signup' do
   	redirect :"users"
   else
     flash[:error] = user.errors.full_messages 
-  	redirect :"session/new"
+  	redirect :"/signup"
   end
 end
 
 get '/logout' do
-  session[:user] = nil
+  session.clear
   redirect "/"
 end
 
+get '/login' do
+  erb :"session/login"
+end
+
+post '/login' do
+  user = User.find_by(email: params[:user_email]).try(:authenticate, params[:user_password])  
+  if user
+    flash[:notice] = "Welcome!"
+    session[:user] = user.id
+    redirect :"users"
+  else
+    flash[:error] = "Invalid user or password."
+    redirect :"/login"
+  end
+end
