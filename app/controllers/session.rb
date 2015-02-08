@@ -1,11 +1,11 @@
 get '/users' do
 	@users = User.all
-	erb :"user/show_all"
+	erb :"session/show_all"
 end
 
 get '/signup' do
   user = User.new
-	erb :"user/new"
+	erb :"session/new"
 end
 
 post '/signup' do
@@ -20,7 +20,7 @@ post '/signup' do
   	redirect :"users"
   else
     flash[:error] = user.errors.full_messages 
-  	redirect :"user/new"
+  	redirect :"session/new"
   end
 end
 
