@@ -7,11 +7,15 @@ user.save
 15.times do
 	password = Faker::Internet.password
 	user = User.new(name: Faker::Name.name , email: Faker::Internet.email , password: password, password_confirmation: password)
-	user.save
-
-	article = user.articles.new(title: Faker::Lorem.sentence, content: Faker::Lorem.paragraph(2, false, 4))
-	article.save  
-
-	article = user.articles.new(title: Faker::Lorem.sentence, content: Faker::Lorem.paragraph(2, false, 4))
-	article.save  
+	if user.valid?
+		user.save		
+		article = user.articles.new(title: Faker::Lorem.sentence, content: Faker::Lorem.paragraph(2, false, 4))
+		if article.valid?
+			article.save  
+		end
+		article = user.articles.new(title: Faker::Lorem.sentence, content: Faker::Lorem.paragraph(2, false, 4))
+		if article.valid?
+			article.save  
+		end
+	end	
 end
