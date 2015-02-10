@@ -1,0 +1,18 @@
+<form action="/article/new" method="POST">
+
+  <% if flash[:error] %>
+   <% flash[:error].each do |e| %>
+     <p class="error message"><%= e + "." %></p>
+    <% end %>
+  <% end %>
+
+  <div class="title">
+    <label>Title:</label>
+    <input name="article_title">
+  </div>
+  <div class="content">
+    <label>Content:</label>
+    <input name="article_content">
+  </div>
+  <input id = "create_btn" type="submit" value="Create">
+</form>
