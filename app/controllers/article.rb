@@ -1,5 +1,5 @@
 get '/articles' do
-	@articles = Article.all
+	@articles = Article.all.reverse
 	erb :'article/show_all' 
 end
 
